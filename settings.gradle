@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "Household_account_book"

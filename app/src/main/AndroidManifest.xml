@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.es.household_account_book">
+
+    <!-- 카메라 사용 권한 추가 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <!-- 인터넷, 오디오 사용 권한 추가 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <queries>
+        <intent>
+            <action android:name="android.speech.RecognitionService" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.TTS_SERVICE" />
+        </intent>
+    </queries>
+
+    <application
+        android:allowBackup="true"
+        android:fontFamily="@font/im_hyemin_bold"
+        android:icon="@mipmap/ic_launcher"
+        android:label=""
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Household_account_book"
+        android:usesCleartextTraffic="true">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".Stt" />
+        <activity android:name=".Calendar" />
+        <activity android:name=".Analysis" />
+        <activity android:name=".SearchResult" />
+        <activity android:name=".SearchStart" />
+        <activity android:name=".IncomeWrite" />
+        <activity android:name=".ExpensesWrite" />
+        <activity android:name=".expenses_element.date" />
+        <activity android:name=".expenses_element.category" />
+        <activity android:name=".expenses_element.account" />
+        <activity android:name=".expenses_element.expenses_voice_main" />
+        <activity android:name=".income_element.date" />
+        <activity android:name=".income_element.category" />
+        <activity android:name=".income_element.account" />
+        <activity android:name=".income_element.income_voice_main" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".SearchStore" />
+        <activity
+            android:name=".ExpensesOcr"
+            android:exported="false" />
+        <activity
+            android:name=".Income"
+            android:exported="false" />
+        <activity
+            android:name=".Expenses"
+            android:exported="false" />
+        <activity android:name=".MainMenu" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.es.household_account_book"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+    </application>
+
+</manifest>
